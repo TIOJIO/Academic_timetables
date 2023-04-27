@@ -400,7 +400,7 @@
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
   
-                       <form  method="post">
+                       <form  action="./update.php" method="post">
                           <?php foreach ($update as $row) : ?>
                              <div class="main">
                                  <div class="first-main">
@@ -445,6 +445,8 @@
                                       <div style="width: 80%;display: flex;justify-content: space-between;">
                                           <input class="action" name="send" type="submit" value="Sauvegarder">
                                           <input class="action-reset" type="reset" value="Annuler">
+                                          <input  name="idi" style="display: none;" value="<?php echo $row['id_prof'] ?>" type="text">
+
                                       </div>
                                  </div>
                              </div>
@@ -456,34 +458,6 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <?php
-    include_once('../bd/config.php');
-    
-    if(isset($_POST['send'])){
-      $username=$_POST['username'];
-      $names=$_POST['names'];
-      $email=$_POST['email'];
-      $tel=$_POST['tel'];
-      $matricule=$_POST['matricule'];
-      $photo=$_POST['photo'];
-      $date_naiss = $_POST['date_naiss'];
-      $ecole = $_POST['ecole']; 
-      $dep = $_POST['dep']; 
-      $filiere = $_POST['filiere']; 
-      $matiere = $_POST['matiere']; 
-
-       $mod = $pdo->prepare("UPDATE professeur SET username='$username',names='$names',
-             email='$email', telephone='$tel', matricule=$matricule ,photos='$photo',
-             date_naiss='$date_naiss', nom_ecole=$ecole 
-             nom_dep='$dep', nom_filiere='$filiere', nom_matiere=$matiere 
-              WHERE id_prof=$a");
-              $mod->execute();   
-              header("location:../professeur.php");
-
-      
-        
-    }
-?>
 
 
 

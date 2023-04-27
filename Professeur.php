@@ -392,7 +392,7 @@
                                        <?php foreach ($result as $row): ?>
                                          <tr style="text-align: center;">
                                                <td><img width="35" height="30" src="img/undraw_profile.svg"></td>
-                                                <td><?php echo $row['username'] ?></td>
+                                                <td><?php echo $row['username'] ?> <?php echo $row['names'] ?></td>
                                                 <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
                                                 <td><?php echo $row['telephone'] ?></td>
                                                 <td><?php echo $row['nom_ecole'] ?></td>

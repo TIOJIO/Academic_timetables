@@ -23,6 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./Programme.css">
 </head>
 
 <body id="page-top">
@@ -353,63 +354,131 @@
 
                         <!-- Page Heading -->
                         <div style="width:100%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800">Pofesseur</h1>
+                            <h1 class="h3 mb-4 text-gray-800">Planification Horaire</h1>
                             <a href="./Professeur/addProfesseur.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
-                                <p>+ Nouveau professeur</p>
+                                <p>+ Nouveau Programme</p>
                             </a>
                         </div>
 
                         <br>
         
-         <?php
-            include_once('bd/config.php');
-            $req = $pdo->prepare("SELECT * FROM professeur");
-            $req->execute();
-            $result = $req->fetchAll();
-          ?>
+      
                      <!-- DataTales Example -->
-                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
+                     <div class="card shadow mb-4"><br>
+                            <p style="text-align: center;"> Emploi de temps</p>
+                            <p style="text-align: center;"> Periode de 10/04/2023 au 16/04/2023</p>
+                            <p style="text-align: center;"> Classe : CSI3 DLW/J A</p>
+
+                            <div class="card-header ">
+                                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Telecharger le Programme</a>
+                            </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table   width="100%" border="1">
                                     <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Username</th>
-                                            <th>Matricule</th>
-                                            <th>Telephone</th>
-                                            <th>Ecole</th>
-                                            <th>Date Naissance</th>
-                                            <th>Creer par </th>
+                                        <tr class="entete">
+                                            <th style="width: 10%;">HORAIRE</th>
+                                            <th style="width: 15%;">LUNDI</th>
+                                            <th style="width: 15%;">MARDI</th>
+                                            <th style="width: 15%;">MERCREDI</th>
+                                            <th style="width: 15%;">JEUDI</th>
+                                            <th style="width: 15%;">VENDREDI</th>
+                                            <th style="width: 15%;">SAMEDI </th>
+                                            <th style="width: 15%;">DIMANCHE </th>
                                         </tr>
                                     </thead>
                                    
                                     <tbody>
-                                       <?php foreach ($result as $row): ?>
-                                         <tr style="text-align: center;">
-                                               <td><img width="35" height="30" src="img/undraw_profile.svg"></td>
-                                                <td><?php echo $row['username'] ?></td>
-                                                <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
-                                                <td><?php echo $row['telephone'] ?></td>
-                                                <td><?php echo $row['nom_ecole'] ?></td>
-                                                <td><?php echo $row['date_naiss'] ?></td>
-                                                <?php $id = $row['id_prof'] ?>
-                                                <td>
-                                                    <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
-                                                    ';?>
-                                                    <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
-                                                    ';?>
-                                                </td>
-                                            </tr>
-                                    <?php endforeach ?>                                       
+                                        <tr>
+                                            <td class="colonne-horaire">08:00-09:50</td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+
+                                           
+                                        </tr>   
+                                        <tr class="colonne-data">
+                                            <td class="colonne-horaire">09:50-10:10</td>
+                                            <td >~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+
+                                        </tr>   
+                                        <tr>
+                                            <td class="colonne-horaire">10:10-12:00</td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span></span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>
+                                        <tr  class="colonne-data">
+                                            <td class="colonne-horaire">12:00-13:00</td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="colonne-horaire">13:00-14:50</td>
+                                            <td class="clon"> <div class="data"> <span>Securite informatique</span> <span class="colonne-prof">KANA JEAN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>
+                                        <tr class="colonne-pause">
+                                            <td class="colonne-horaire">14:50-15:10</td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                        </tr>
+                                        <tr class="colonne-data">
+                                            <td class="colonne-horaire">15:10-17:00</td>
+                                            <td class="clon"> <div class="data"> <span>Securite informatique</span> <span class="colonne-prof">ANA JEAN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>                                   
                                     </tbody>
-                                </table>
+                                </table><br>
+
+
+                                <footer class="sticky-footer bg-white">
+                                        <div class="container my-auto">
+                                            <div class="copyright text-center my-auto">
+                                                <span>Copyright@2023 &copy; Votre plateforme de gestion des planification horaire</span>
+                                            </div>
+                                        </div>
+                                </footer>
+
                             </div>
                         </div>
                     </div> 
@@ -422,129 +491,10 @@
             <!-- End of Main Content -->
 
 
-            <table border="5" cellspacing="0" align="center">
-        <!--<caption>Timetable</caption>-->
-        <tr>
-            <td align="center" height="50"
-                width="100"><br>
-                <b>Day/Period</b></br>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>I<br>9:30-10:20</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>II<br>10:20-11:10</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>III<br>11:10-12:00</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>12:00-12:40</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>IV<br>12:40-1:30</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>V<br>1:30-2:20</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>VI<br>2:20-3:10</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>VII<br>3:10-4:00</b>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Monday</b></td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">Che</td>
-            <td rowspan="6" align="center" height="50">
-                <h2>L<br>U<br>N<br>C<br>H</h2>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB</td>
-            <td align="center" height="50">Phy</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Tuesday</b>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">SPORTS</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Wednesday</b>
-            </td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">phy</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td colspan="3" align="center"
-                height="50">LIBRARY
-            </td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Thursday</b>
-            </td>
-            <td align="center" height="50">Phy</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td align="center" height="50">Mat</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Friday</b>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">Che</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Phy</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Saturday</b>
-            </td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td align="center" height="50">Mat</td>
-            <td colspan="3" align="center"
-                height="50">SEMINAR
-            </td>
-            <td align="center" height="50">SPORTS</td>
-        </tr>
-    </table>
+           
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+     
             <!-- End of Footer -->
 
         </div>
