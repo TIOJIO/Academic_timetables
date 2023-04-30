@@ -23,6 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./Programme.css">
 </head>
 
 <body id="page-top">
@@ -30,108 +31,109 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="admin.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Ecole & Departement</span>
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Ecole & Departement</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./Ecole.php">Nouvelle Ecole</a>
-                        <a class="collapse-item" href="./Departement.php">Nouveau departement</a>
-                    </div>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="./Ecole.php">Nouvelle Ecole</a>
+                    <a class="collapse-item" href="./Departement.php">Nouveau departement</a>
                 </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Filiere & Matiere</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./Filiere.php">Nouvelle FIlliere</a>
-                        <a class="collapse-item" href="./Matiere.php">Nouelle Matiere</a>
-                        <a class="collapse-item" href="./ProgrammerCours.php">Programmer un cours</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Professeur</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
-                        <a class="collapse-item" href="./ProgrammerProf.php">Programmer un professeur</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="./Programmes.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Programmes</span></a>
-            </li>
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+        </li>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SHEDULE SCHOOL</strong> Pour une  plannification Horaire efficace</p>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Filiere & Matiere</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="./Filiere.php">Nouvelle FIlliere</a>
+                    <a class="collapse-item" href="./Matiere.php">Nouelle Matiere</a>
+                    <a class="collapse-item" href="./ProgrammerCours.php">Programmer un cours</a>
+                </div>
             </div>
+        </li>
 
-            </ul>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Professeur</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
+                    <a class="collapse-item" href="./Eleve.php">Nouvel  Eleve</a>
+                    <a class="collapse-item" href="./ProgrammerProf.php">Programmer un professeur</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="./Programmes.php">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Programmes</span></a>
+        </li>
+
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        <!-- Sidebar Message -->
+        <div class="sidebar-card d-none d-lg-flex">
+            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+            <p class="text-center mb-2"><strong>SHEDULE SCHOOL</strong> Pour une  plannification Horaire efficace</p>
+        </div>
+
+        </ul>
 <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -353,63 +355,131 @@
 
                         <!-- Page Heading -->
                         <div style="width:100%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800">Pofesseur</h1>
+                            <h1 class="h3 mb-4 text-gray-800">Planification Horaire</h1>
                             <a href="./Professeur/addProfesseur.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
-                                <p>+ Nouveau professeur</p>
+                                <p>+ Nouveau Programme</p>
                             </a>
                         </div>
 
                         <br>
         
-         <?php
-            include_once('bd/config.php');
-            $req = $pdo->prepare("SELECT * FROM professeur");
-            $req->execute();
-            $result = $req->fetchAll();
-          ?>
+      
                      <!-- DataTales Example -->
-                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
+                     <div class="card shadow mb-4"><br>
+                            <p style="text-align: center;"> Emploi de temps</p>
+                            <p style="text-align: center;"> Periode de 10/04/2023 au 16/04/2023</p>
+                            <p style="text-align: center;"> Classe : CSI3 DLW/J A</p>
+
+                            <div class="card-header ">
+                                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Telecharger le Programme</a>
+                            </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table   width="100%" border="1">
                                     <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Username</th>
-                                            <th>Matricule</th>
-                                            <th>Telephone</th>
-                                            <th>Ecole</th>
-                                            <th>Date Naissance</th>
-                                            <th>Creer par </th>
+                                        <tr class="entete">
+                                            <th style="width: 10%;">HORAIRE</th>
+                                            <th style="width: 15%;">LUNDI</th>
+                                            <th style="width: 15%;">MARDI</th>
+                                            <th style="width: 15%;">MERCREDI</th>
+                                            <th style="width: 15%;">JEUDI</th>
+                                            <th style="width: 15%;">VENDREDI</th>
+                                            <th style="width: 15%;">SAMEDI </th>
+                                            <th style="width: 15%;">DIMANCHE </th>
                                         </tr>
                                     </thead>
                                    
                                     <tbody>
-                                       <?php foreach ($result as $row): ?>
-                                         <tr style="text-align: center;">
-                                               <td><img width="35" height="30" src="img/undraw_profile.svg"></td>
-                                                <td><?php echo $row['username'] ?></td>
-                                                <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
-                                                <td><?php echo $row['telephone'] ?></td>
-                                                <td><?php echo $row['nom_ecole'] ?></td>
-                                                <td><?php echo $row['date_naiss'] ?></td>
-                                                <?php $id = $row['id_prof'] ?>
-                                                <td>
-                                                    <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
-                                                    ';?>
-                                                    <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
-                                                    ';?>
-                                                </td>
-                                            </tr>
-                                    <?php endforeach ?>                                       
+                                        <tr>
+                                            <td class="colonne-horaire">08:00-09:50</td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+
+                                           
+                                        </tr>   
+                                        <tr class="colonne-data">
+                                            <td class="colonne-horaire">09:50-10:10</td>
+                                            <td >~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+
+                                        </tr>   
+                                        <tr>
+                                            <td class="colonne-horaire">10:10-12:00</td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span></span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>
+                                        <tr  class="colonne-data">
+                                            <td class="colonne-horaire">12:00-13:00</td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="colonne-horaire">13:00-14:50</td>
+                                            <td class="clon"> <div class="data"> <span>Securite informatique</span> <span class="colonne-prof">KANA JEAN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>
+                                        <tr class="colonne-pause">
+                                            <td class="colonne-horaire">14:50-15:10</td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                            <td>~*PAUSE*~ </td>
+                                        </tr>
+                                        <tr class="colonne-data">
+                                            <td class="colonne-horaire">15:10-17:00</td>
+                                            <td class="clon"> <div class="data"> <span>Securite informatique</span> <span class="colonne-prof">ANA JEAN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span>Compabilite Analytique</span> <span class="colonne-prof">TIOJIO ROMAIN</span> <span class="colonne-salle">salle:CF147</span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+                                            <td class="clon"> <div class="data"> <span> </span> <span class="colonne-prof"> </span> <span class="colonne-salle"> </span>  </div></td>
+
+                                        </tr>                                   
                                     </tbody>
-                                </table>
+                                </table><br>
+
+
+                                <footer class="sticky-footer bg-white">
+                                        <div class="container my-auto">
+                                            <div class="copyright text-center my-auto">
+                                                <span>Copyright@2023 &copy; Votre plateforme de gestion des planification horaire</span>
+                                            </div>
+                                        </div>
+                                </footer>
+
                             </div>
                         </div>
                     </div> 
@@ -421,14 +491,11 @@
             </div>
             <!-- End of Main Content -->
 
+
+           
+
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+     
             <!-- End of Footer -->
 
         </div>

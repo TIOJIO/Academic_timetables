@@ -103,35 +103,36 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
+            <a class="collapse-item" href="./Eleve.php">Nouvel  Eleve</a>
             <a class="collapse-item" href="./ProgrammerProf.php">Programmer un professeur</a>
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Charts -->
-<li class="nav-item">
-    <a class="nav-link" href="./Programmes.php">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Programmes</span></a>
-</li>
+        <li class="nav-item">
+            <a class="nav-link" href="./Programmes.php">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Programmes</span></a>
+        </li>
 
 
 
-<!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
 
-<!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
-<!-- Sidebar Message -->
-<div class="sidebar-card d-none d-lg-flex">
-    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-    <p class="text-center mb-2"><strong>SHEDULE SCHOOL</strong> Pour une  plannification Horaire efficace</p>
-</div>
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SHEDULE SCHOOL</strong> Pour une  plannification Horaire efficace</p>
+            </div>
 
-</ul>
+            </ul>
 <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -197,7 +198,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <span class="badge badge-danger badge-counter">10+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -399,11 +400,15 @@
                                                 <td><?php echo $row['date_naiss'] ?></td>
                                                 <?php $id = $row['id_prof'] ?>
                                                 <td>
+                                                    
                                                     <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
+                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button style="border: none;background-color: white;" type="submit" name="sup">🗑️</button></a>
                                                     ';?>
                                                     <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
+                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button style="border: none;background-color: white;">✏️</button></a>
+                                                    ';?>
+                                                     <?php                    
+                                                    echo '<a href="professeur/ProgrammerProf.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
                                                     ';?>
                                                 </td>
                                             </tr>

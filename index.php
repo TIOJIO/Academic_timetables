@@ -33,25 +33,26 @@
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
+                        <br>
+                         <h1 style="text-align: center;" >lkjhgfdd</h1>
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="./img/Login.png" style="margin-left: 50px;margin-top: 80px;" width="auto" height="auto" alt="">
+                            <div class="col-lg-6 d-none d-lg-block ">
+                                <img src="./img/log1.png" style="margin-left: 50px;margin-top: 50px;" width="auto" height="auto" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form method="post" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="text" name="username" required class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Entrer Username...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" name="matricule" required class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Matricule">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -60,16 +61,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="admin.php" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <input name="login" class="btn btn-primary btn-user btn-block" type="submit" value="Login" />
+
+                                        
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -79,8 +73,46 @@
                                         <a class="small" href="register.html">Create an Account!</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div >
                         </div>
+
+                              <?php
+                                        include_once('bd/config.php');
+                                        $error= "le nom d'utilisateur ou le mot de passe est incorrect";
+                                        if (isset($_POST['login'])) {  
+                                            $username= $_POST['username'];
+                                            $matricule=$_POST['matricule'];
+                                            session_start();
+                                              $_SESSION['username'] = $username;
+                                              $_SESSION['matricule'] = $matricule;
+
+                                              $req = $pdo->prepare("SELECT * FROM professeur WHERE username = '$username' AND  matricule= '$matricule'");
+                                              $req->execute();
+                                              $result = $req->fetchAll();
+
+
+                                                if ($result == true){
+                                                    
+                                                    $prof = $pdo->prepare("SELECT id_prof FROM professeur WHERE matricule ='$matricule' ");
+                                                    $prof->execute();
+                                                     foreach ($prof as $rowp){
+                                                         $idi = $rowp['id_prof'];
+
+                                                     }
+                                                     
+                                                    echo "<h3 style=color:green;text-align:center;font: size 100px;font-weight: bold;>connexion en cours...</h3>";
+                                                    header('location:./SESSION/Professeur/Professeur.php?$idi='.$idi.'');
+                                                
+
+                                                }else{
+                                                
+                                                    echo "<p style=color:red;text-align:center;>Desolé le nom utilisateur et matricule ne correspondent pas<p> ";
+                                                   exit;
+                                                    
+                                                }
+                                            
+                                        }
+                                   ?>
                     </div>
                 </div>
 

@@ -103,6 +103,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="../Professeur.php">Nouveau Professeur</a>
+                        <a class="collapse-item" href="../Eleve.php">Nouvel  Eleve</a>
                         <a class="collapse-item" href="../ProgrammerProf.php">Programmer un professeur</a>
                     </div>
                 </div>
