@@ -31,10 +31,10 @@
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div  class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <br>
-                         <h1 style="text-align: center;" >lkjhgfdd</h1>
+                         <h1 style="font-weight: bold;text-align: center;" >Sti<span style="font-weight: bold;color: rgba(0, 0, 255, 0.632);">Ma</span> </h1>
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
                                 <img src="./img/log1.png" style="margin-left: 50px;margin-top: 50px;" width="auto" height="auto" alt="">
