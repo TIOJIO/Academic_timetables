@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="./img/f2.jpg" type="image/x-icon">
-    <title>StiMa</title>
+
+    <title>Emploi de Temps</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="./index.css">
+   <link rel="stylesheet" href="./Professeur.css">
 </head>
 
 <body id="page-top">
@@ -33,96 +33,88 @@
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-<!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-calendar"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">StiMa </div>
-</a>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
+            </a>
 
-<!-- Divider -->
-<hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="admin.php">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-</li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../admin.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-<!-- Divider -->
-<hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-<!-- Heading -->
-
-
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-        aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-building"></i>
-        <span>Ecole & Departement</span>
-    </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Ecole.php">Nouvelle Ecole</a>
-            <a class="collapse-item" href="./Departement.php">Nouveau departement</a>
-        </div>
-    </div>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
+            <!-- Heading -->
 
 
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-        aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Filiere & Matiere</span>
-    </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Filiere.php">Nouvelle FIlliere</a>
-            <a class="collapse-item" href="./Matiere.php">Nouelle Matiere</a>
-            <a class="collapse-item" href="./Filiere/ProgrammerCour.php">Programmer un cours</a>
-        </div>
-    </div>
-</li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Ecole & Departement</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../Ecole.php">Nouvelle Ecole</a>
+                        <a class="collapse-item" href="../Departement.php">Nouveau departement</a>
+                    </div>
+                </div>
+            </li>
 
- <!-- Nav Item - Pages Collapse Menu -->
- <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-male"></i>
-        <span>Professeur & Eleve</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
-            <a class="collapse-item" href="./Eleve.php">Nouvel  Eleve</a>
-            <a  class="collapse-item" href="./Professeur.php">Programmer un professeur</a>
-        </div>
-    </div>
-</li>
-
-<!-- Nav Item - Charts -->
-
-       <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
-        </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
 
-        <li class="nav-item">
-            <a class="nav-link" href="./Programmes.php">
-                <i class="fas fa-calendar"></i>
-                <span>Programmes</span></a>
-        </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Filiere & Matiere</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../Filiere.php">Nouvelle FIlliere</a>
+                        <a class="collapse-item" href="../Matiere.php">Nouelle Matiere</a>
+                        <a class="collapse-item" href="../ProgrammerCours.php">Programmer un cours</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Professeur</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../Professeur.php">Nouveau Professeur</a>
+                        <a class="collapse-item" href="../Eleve.php">Nouvel  Eleve</a>
+                        <a class="collapse-item" href="../ProgrammerProf.php">Programmer un professeur</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="../Programmes.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Programmes</span></a>
+            </li>
 
 
 
@@ -152,8 +144,26 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                  
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
 
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -188,7 +198,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">10+</span>
+                                <span class="badge badge-danger badge-counter">3+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -343,71 +353,98 @@
                    
 
                         <!-- Page Heading -->
-                        <div style="width:100%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800">Pofesseur</h1>
-                            <a href="./Professeur/addProfesseur.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
-                                <p>+ Nouveau professeur</p>
-                            </a>
+                        <div >
+                            <h1 class="h3 mb-4 text-gray-800">Création d'une nouvelle Filiere</h1>
                         </div>
 
-                        <br>
-        
+                        <div id="id01" class="modale" style="display: none;">
+                            <form class="modale-content animate" action="https://www.w3schools.com/action_page.php" method="post">
+                              <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modale">&times;</span>
+                                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                              </div>
+                          
+                              <div class="container">
+                                <label for="uname"><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" name="uname" required>
+                          
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+                                  
+                                <button type="submit">Login</button>
+                                <label>
+                                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                                </label>
+                              </div>
+                          
+                              <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                              </div>
+                            </form>
+                          </div>
+                          
+                      
+
+
+   
+
          <?php
-            include_once('bd/config.php');
-            $req = $pdo->prepare("SELECT * FROM professeur");
+            include_once('../bd/config.php');
+            $req = $pdo->prepare("SELECT * FROM ecole");
             $req->execute();
             $result = $req->fetchAll();
+
+            $req1 = $pdo->prepare("SELECT * FROM departement");
+            $req1->execute();
+            $results = $req1->fetchAll();
           ?>
                      <!-- DataTales Example -->
-                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  onclick=print();><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Username</th>
-                                            <th>Matricule</th>
-                                            <th>Telephone</th>
-                                            <th>Ecole</th>
-                                            <th>Date Naissance</th>
-                                            <th>Creer par </th>
-                                        </tr>
-                                    </thead>
-                                   
-                                    <tbody>
-                                       <?php foreach ($result as $row): ?>
-                                         <tr style="text-align: center;">
-                                               <td><img width="35" height="30" src="img/undraw_profile.svg"></td>
-                                                <td><?php echo $row['username'] ?> <?php echo $row['names'] ?></td>
-                                                <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
-                                                <td><?php echo $row['telephone'] ?></td>
-                                                <td><?php echo $row['nom_ecole'] ?></td>
-                                                <td><?php echo $row['date_naiss'] ?></td>
-                                                <?php $id = $row['id_prof'] ?>
-                                                <td>
-                                                    
-                                                    <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button style="border: none;background-color: white;" type="submit" name="sup">🗑️</button></a>
-                                                    ';?>
-                                                    <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button style="border: none;background-color: white;">✏️</button></a>
-                                                    ';?>
-                                                     <?php                    
-                                                    echo '<a href="professeur/ProgrammerProf.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
-                                                    ';?>
-                                                </td>
-                                            </tr>
-                                    <?php endforeach ?>                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div> 
+                    <div class="card shadow mb-4">
+  
+                       <form action="./insert.php"  method="post">
+                             <div class="main">
+                                 <div class="first-main">
+                                     <img src="./img/Login.png" width="100%" height="100%" alt="">
+                                 </div>
+
+                                 <div class="first-main">
+                                   <select class="input-form"  name="ecole" id="" >
+                                        <option value="">choisir l'ecole</option>
+                                        <?php foreach ($result as $row): ?>
+                                        <option value="<?php echo $row['nom'] ?>"><?php echo $row['nom'] ?> </option>
+                                        <?php endforeach ?>  
+                                     </select>
+                                     <br><br>
+
+                                     <select class="input-form"  name="dep" id="" >
+                                        <option value="">choisir le departement</option>
+                                        <?php foreach ($results as $rows): ?>
+                                        <option value="<?php echo $rows['nom'] ?>"><?php echo $rows['nom'] ?> </option>
+                                        <?php endforeach ?>  
+                                     </select>
+                                     <br><br>
+
+                                      <input placeholder="Nom filiere" name="nom_filiere" class="input-form" type="text"><br><br>
+                                      <select class="input-form" aria-placeholder="choisir un Directeur" name="resp_filiere" id="" >
+                                        <option value="">choisir un responsable de filiere</option>
+                                        <option value="AZEBAZE JEANNET">AZEBAZE JEANNET </option>
+                                        <option value="UBER JEAN">UBER JEAN</option>
+                                        <option value="KANA LUIS">KANA LUIS </option>
+                                     </select><br><br>
+                                     <input  name="image" class="input-form" type="file" id="image">
+
+                                      <br><br>
+                                      <div style="width: 80%;display: flex;justify-content: space-between;">
+                                          <input class="action" name="save" type="submit" value="Enregistrer">
+                                          <input class="action-reset" type="reset" value="Annuler">
+                                      </div>
+                                 </div>
+                             </div>
+                          </form>
+                    </div>
+
+                     </div> 
 
 
                 </div>
@@ -416,14 +453,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+           
             <!-- End of Footer -->
 
         </div>
@@ -451,7 +481,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="./index.php">Logout</a>
+                    <a class="btn btn-primary" href="../index.php">Logout</a>
                 </div>
             </div>
         </div>

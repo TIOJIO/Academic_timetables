@@ -88,7 +88,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="./Filiere.php">Nouvelle FIlliere</a>
             <a class="collapse-item" href="./Matiere.php">Nouelle Matiere</a>
-            <a class="collapse-item" href="./Filiere/ProgrammerCour.php">Programmer un cours</a>
+            <a class="collapse-item" href="./ProgrammerCours.php">Programmer un cours</a>
         </div>
     </div>
 </li>
@@ -104,7 +104,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
             <a class="collapse-item" href="./Eleve.php">Nouvel  Eleve</a>
-            <a  class="collapse-item" href="./Professeur.php">Programmer un professeur</a>
+            <a class="collapse-item" href="./ProgrammerProf.php">Programmer un professeur</a>
         </div>
     </div>
 </li>
@@ -112,7 +112,7 @@
 <!-- Nav Item - Charts -->
 
        <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
+            <a class="nav-link" href="./Programmes.php">
                 <i class="fas fa-user-circle"></i>
                 <span>Administration</span></a>
         </li>
