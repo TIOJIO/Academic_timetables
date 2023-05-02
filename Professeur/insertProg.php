@@ -10,14 +10,14 @@
       $filiere = $_POST['filiere']; 
       $prof = $_POST['prof']; 
       $id_prof = $_POST['id_prof']; 
-      $periode_debut = $_POST['periode_debut']; 
-      $periode_fin = $_POST['periode_fin']; 
+
     
-       
+       echo  $heure_debut;
+       echo  $heure_fin;
 
 
-  $req=$pdo->prepare("INSERT INTO programme(prof,jour,heure_debut,heure_fin,salle,matiere,filiere,periode_debut,periode_fin,id_prof) 
-  VALUES(:prof,:jour,:heure_debut,:heure_fin,:salle,:matiere,:filiere,:periode_debut,:periode_fin,:id_prof)");   
+  $req=$pdo->prepare("INSERT INTO programme(prof,jour,heure_debut,heure_fin,salle,matiere,filiere,id_prof) 
+  VALUES(:prof,:jour,:heure_debut,:heure_fin,:salle,:matiere,:filiere,:id_prof)");   
   $result= $req->execute([
   'prof' => $prof,
   'jour' => $jour,
@@ -26,8 +26,6 @@
   'salle' => $salle,
   'matiere' => $matiere,
   'filiere' => $filiere,
-  'periode_debut' => $periode_debut,
-  'periode_fin' =>  $periode_fin,
   'id_prof' => $id_prof,
 
 ]);

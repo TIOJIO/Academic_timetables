@@ -19,12 +19,68 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./animation.scss">
+    <style>
+        
+    </style>
 
 </head>
 
 <body >
 
     <div class="container">
+    <div class="stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+</div>
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -34,7 +90,7 @@
                 <div  class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <br>
-                         <h1 style="font-weight: bold;text-align: center;" >Sti<span style="font-weight: bold;color: rgba(0, 0, 255, 0.632);">Ma</span> </h1>
+                         <h1 style="font-weight: bold;text-align: center;" > Sti<span style="font-weight: bold;color: rgba(0, 0, 255, 0.632);">Ma</span><sup style="font-size: 25px;color: rgba(0, 0, 255, 0.632);"><i class="fas fa-calendar"></i>&nbsp;</sup> </h1>
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
                                 <img src="./img/log1.png" style="margin-left: 50px;margin-top: 50px;" width="auto" height="auto" alt="">
@@ -42,9 +98,9 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Administrateur!</h1>
                                     </div>
-                                    <form action="./connectuse.php" method="post" class="user">
+                                    <form action="./connectadmin.php" method="post" class="user">
                                         <div class="form-group">
                                             <input type="text" name="username" required class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -52,7 +108,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="matricule" required class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Matricule">
+                                                id="exampleInputPassword" placeholder="Pasword">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -70,13 +126,20 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="./LoginAdmin.php">Se Connecter comme Admin</a>
+                                        <a class="small" href="./index.php">Se Connecter comme Utilisateur!</a>
                                     </div>
                                 </div>
                             </div >
                         </div>
 
-                              
+                              <?php
+                                        include_once('bd/config.php');
+                                        if (isset($_POST['login'])) {  
+                                           
+                                            header('location:./admin.php');
+
+                                        }
+                                   ?>
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@
 <?php
    
     try {
-         $pdo = new PDO("mysql:host=localhost;dbname=emploi_temps", "root", "");
+         $pdo = new PDO("mysql:host=localhost;dbname=stima_db", "root", "");
     } catch (\Throwable $th) {
         echo $th;
     }

@@ -694,7 +694,7 @@
         
             <form action="./insertProg.php" method="post">
                 <div class="modal-body">
-                         <select class="input-form"  name="jour" id="" >
+                         <select required class="input-form"  name="jour" id="" >
                              <option value="">choisir le jour</option>
                              <option value="LUNDI">LUNDI</option>
                              <option value="MARDI">MARDI</option>
@@ -706,11 +706,11 @@
                          </select><br><br>
 
                          <div style="display: flex;justify-content: space-between;width:100%">
-                            <input placeholder="heure_debut" name="heure_debut" class="input-form" type="time">&nbsp;&nbsp;&nbsp;
-                            <input placeholder="heure_fin" name="heure_fin" class="input-form" type="time">
+                            <input placeholder="heure_debut" required name="heure_debut" class="input-form" type="time">&nbsp;&nbsp;&nbsp;
+                            <input placeholder="heure_fin" required name="heure_fin" class="input-form" type="time">
                          </div><br>
 
-                         <select class="input-form"  name="salle" id="" >
+                         <select class="input-form" required  name="salle" id="" >
                              <option value="">choisir la salle</option>
                              <option value="CF124">CF124</option>
                              <option value="CF124">CF124</option>
@@ -721,14 +721,14 @@
                              <option value="CJ002">CJ002</option>
                          </select><br><br>
 
-                         <select class="input-form"  name="matiere" id="" >
+                         <select class="input-form" required  name="matiere" id="" >
                                 <option value="">choisir la matiere</option>
                                 <?php foreach ($results as $row): ?>
                                 <option value="<?php echo $row['nom'] ?>"><?php echo $row['nom'] ?> </option>
                                 <?php endforeach ?>  
                         </select><br><br>
 
-                         <select class="input-form"  name="filiere" id="" >
+                         <select class="input-form" required  name="filiere" id="" >
                                 <option value="">choisir la filiere</option>
                                 <?php foreach ($results2 as $rows2): ?>
                                 <option value="<?php echo $rows2['nom_filiere'] ?>"><?php echo $rows2['nom_filiere'] ?> </option>

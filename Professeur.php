@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Emploi de Temps</title>
+    <link rel="shortcut icon" href="./img/f2.jpg" type="image/x-icon">
+    <title>StiMa</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,9 +36,9 @@
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+        <i class="fas fa-calendar"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">StiMa </div>
 </a>
 
 <!-- Divider -->
@@ -61,7 +61,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fas fa-building"></i>
         <span>Ecole & Departement</span>
     </a>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -97,7 +97,7 @@
  <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-male"></i>
         <span>Professeur</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -110,9 +110,17 @@
 </li>
 
 <!-- Nav Item - Charts -->
+
+       <li class="nav-item">
+            <a class="nav-link" href="./Programmes.php">
+                <i class="fas fa-user-circle"></i>
+                <span>Administration</span></a>
+        </li>
+
+
         <li class="nav-item">
             <a class="nav-link" href="./Programmes.php">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-calendar"></i>
                 <span>Programmes</span></a>
         </li>
 
@@ -371,7 +379,7 @@
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  onclick=print();><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                         </div>
                         <div class="card-body">
@@ -461,7 +469,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="./index.php">Logout</a>
                 </div>
             </div>
         </div>

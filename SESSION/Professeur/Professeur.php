@@ -1,14 +1,3 @@
-                         <?php
-                            // Initialiser la session
-                            session_start();
-                            // Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-                            if(!isset($_SESSION["matricule"])){
-                            header("Location: ../../index.php");
-                            exit(); 
-                            }
-                          
-                        ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -259,8 +248,7 @@
                 
                 <?php
                     include_once('../../bd/config.php');
-                      $user_name=$_SESSION['username'];
-                      $user_matricule=$_SESSION['matricule'];
+                      
 
                     $a = $_GET['$idi'];
                     $prof = $pdo->prepare("SELECT*FROM professeur WHERE id_prof =$a ");

@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="./index.css">
+   <link rel="stylesheet" href="./Professeur.css">
 </head>
 
 <body id="page-top">
@@ -30,19 +30,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
- <!-- Sidebar -->
- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-<!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
-</a>
-
-<!-- Divider -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <!-- Sidebar -->
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -362,12 +351,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                    <br><br>
+                          
+                     <!-- DataTales Example -->
+  
+                    <div class="container-fluid">
                    
 
                         <!-- Page Heading -->
                         <div style="width:100%;display:flex;justify-content:space-between">
                             <h1 class="h3 mb-4 text-gray-800">Filiere </h1>
-                            <a href="./Filiere/addFiliere.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
+                            <a href="./Filiere/addFiliere.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px">
                                 <p>+ Nouvelle filliere</p>
                             </a>
                         </div>
@@ -429,19 +422,15 @@
 
 
                 </div>
+
+
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+           
             <!-- End of Footer -->
 
         </div>
@@ -469,7 +458,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../index.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -504,3 +493,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+           
