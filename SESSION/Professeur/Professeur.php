@@ -10,7 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Emploi de Temps</title>
+    <link rel="shortcut icon" href="../../img/f2.jpg" type="image/x-icon">
+    <title>StiMa</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -51,11 +52,11 @@
                     </form>
      
                     <!-- Topbar Search -->
-                    <a  style="font-weight: bold;text-decoration:none;font-size:40px" class="sidebar-brand d-flex align-items-center justify-content-center" >
+                    <a style="text-decoration: none;margin-left:10%" class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
-                            <i class="fas fa-laugh-wink"></i>
-                        </div>
-                        <div class="sidebar-brand-text mx-3">Sheduler SCHOOL <sup>2</sup></div>
+                            <i style="font-weight: bold;font-size:30px;" class="fas fa-calendar"></i>
+                        </div>&nbsp;&nbsp;
+                        <div style="font-weight: bold;font-size:30px;color:black;font-family: 'Times New Roman', Times, serif;" >Sti<span style="font-weight: bold;color: rgba(0, 0, 255, 0.632);">Ma</span> </div>
                     </a>
 
                     <!-- Topbar Navbar -->
@@ -205,19 +206,29 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         
+                        <?php
+                    include_once('../../bd/config.php');
+                      
 
+                    $a = $_GET['$idi'];
+                    $prof = $pdo->prepare("SELECT*FROM professeur WHERE id_prof =$a ");
+                    $prof->execute();
+                    ?>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
+
+                           <?php foreach ($prof as $rows) : ?>
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span style="color: rgba(0, 0, 255, 0.632);font-weight: bold;font-family: 'Times New Roman', Times, serif;"><?php echo $rows['username'] ?>  <?php echo $rows['names'] ?>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
+                            <?php endforeach ?>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a  class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -241,6 +252,8 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                <h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;" class="h3 mb-4 text-gray-800" > soyez la Bienvenue </h1>        
+                <h4 style="text-align: center;font-family: 'Times New Roman', Times, serif;" class="h6 mb-4 text-gray-800" >Excellente semaine !! </h4>        
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -386,7 +399,7 @@
                 ?>
 
                   <?php foreach ($prof as $rows) : ?>
-                        <div style="width:50%;display:flex;justify-content:space-between">
+                        <div style="width:50%;display:flex;justify-content:space-between;font-family: 'Times New Roman', Times, serif;">
                             <h1 class="h3 mb-4 text-gray-800" >Emploi de Temps de :   <span style="color: rgba(0, 0, 255, 0.632);"><?php echo $rows['username'] ?>  <?php echo $rows['names'] ?></span></h1>        
                         </div>
       

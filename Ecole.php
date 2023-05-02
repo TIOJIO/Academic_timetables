@@ -47,7 +47,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="admin.php">
+    <a class="nav-link" href="../admin.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
@@ -68,8 +68,8 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Ecole.php">Nouvelle Ecole</a>
-            <a class="collapse-item" href="./Departement.php">Nouveau departement</a>
+            <a class="collapse-item" href="../Ecole.php">Nouvelle Ecole</a>
+            <a class="collapse-item" href="../Departement.php">Nouveau departement</a>
         </div>
     </div>
 </li>
@@ -87,9 +87,9 @@
     </a>
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Filiere.php">Nouvelle FIlliere</a>
-            <a class="collapse-item" href="./Matiere.php">Nouelle Matiere</a>
-            <a class="collapse-item" href="./Filiere/ProgrammerCour.php">Programmer un cours</a>
+            <a class="collapse-item" href="../Filiere.php">Nouvelle FIlliere</a>
+            <a class="collapse-item" href="../Matiere.php">Nouelle Matiere</a>
+            <a class="collapse-item" href="../Filiere/ProgrammerCour.php">Programmer un cours</a>
         </div>
     </div>
 </li>
@@ -103,9 +103,9 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="./Professeur.php">Nouveau Professeur</a>
-            <a class="collapse-item" href="./Eleve.php">Nouvel  Eleve</a>
-            <a  class="collapse-item" href="./Professeur.php">Programmer un professeur</a>
+            <a class="collapse-item" href="../Professeur.php">Nouveau Professeur</a>
+            <a class="collapse-item" href="../Eleve.php">Nouvel  Eleve</a>
+            <a  class="collapse-item" href="../Professeur.php">Programmer un professeur</a>
         </div>
     </div>
 </li>
@@ -113,14 +113,14 @@
 <!-- Nav Item - Charts -->
 
        <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
+            <a class="nav-link" href="../Administration.php">
                 <i class="fas fa-user-circle"></i>
                 <span>Administration</span></a>
         </li>
 
 
         <li class="nav-item">
-            <a class="nav-link" href="./Programmes.php">
+            <a class="nav-link" href="../Programmes.php">
                 <i class="fas fa-calendar"></i>
                 <span>Programmes</span></a>
         </li>
