@@ -137,7 +137,7 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SHEDULE SCHOOL</strong> Pour une  plannification Horaire efficace</p>
+                <p class="text-center mb-2"><strong>StiMa</strong> Pour une  plannification Horaire efficace</p>
             </div>
 
             </ul>

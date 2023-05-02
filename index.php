@@ -5,7 +5,6 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -63,7 +62,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form action="./connectuse.php" method="post" class="user">
+                                    <form action="./connectuser.php" method="post" class="user">
                                         <div class="form-group">
                                             <input type="text" name="username" required class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
