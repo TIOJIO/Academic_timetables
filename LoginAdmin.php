@@ -85,7 +85,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="./admin.php">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="./index.php">Se Connecter comme Utilisateur</a>
