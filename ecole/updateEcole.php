@@ -378,9 +378,12 @@
                              include_once('../bd/config.php');
 
                                 $a = $_GET['$idi'];
-
                                 $update = $pdo->prepare("SELECT*FROM ecole WHERE id_ecole =$a ");
                                 $update->execute();
+
+                                $req1 = $pdo->prepare("SELECT * FROM administration WHERE poste='DIRECTEUR' ");
+                                $req1->execute();
+                                $result1 = $req1->fetchAll();
 
                             ?>
    
@@ -401,11 +404,12 @@
                                      <br><br>
                                       <input placeholder="Nom ecole" name="label" value="<?php echo $row['nom'] ?>" class="input-form" type="text"><br><br>
                                       <input  name="photo" class="input-form" value="<?php echo $row['photo'] ?>" type="file"><br><br>
+                                      
                                       <select class="input-form" aria-placeholder="choisir un Directeur" name="directeur" id="" >
                                         <option value="<?php echo $row['responsable'] ?>"><?php echo $row['responsable'] ?></option>
-                                        <option value="TIOJIO ROMAIN">TIOJIO ROMAIN </option>
-                                        <option value="FEUJIO ROCHINEL">FEUJIO ROCHINEL</option>
-                                        <option value="PAUL JEAN">PAUL JEAN </option>
+                                        <?php foreach ($result1 as $rowd): ?>
+                                            <option value="<?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>"> <?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>  </option>
+                                         <?php endforeach ?> 
                                      </select>
 
                                       <br><br>

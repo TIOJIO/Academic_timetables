@@ -423,21 +423,15 @@
                                         <?php endforeach ?>  
                                      </select>
                                      <br><br>
-                                     <input placeholder="Nom Matiere" name="mom_matiere" class="input-form" type="text"><br><br>
 
                                      
                                  </div>
 
                                  <div class="first-main">
                                   
-
+                                 <input placeholder="Nom Matiere" name="mom_matiere" class="input-form" type="text"><br><br>
                                       <input placeholder="Nombre heure" name="nbr_heure" class="input-form" type="number"><br><br>
-                                      <select class="input-form" aria-placeholder="choisir un Directeur" name="prof" id="" >
-                                        <option value="">choisir Professeur responsable </option>
-                                        <option value="AZEBAZE JEANNET">AZEBAZE JEANNET </option>
-                                        <option value="UBER JEAN">UBER JEAN</option>
-                                        <option value="KANA LUIS">KANA LUIS </option>
-                                     </select><br><br>
+                                     
 
                                       <div style="width: 80%;display: flex;justify-content: space-between;">
                                           <input class="action" name="save" type="submit" value="Enregistrer">

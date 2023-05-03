@@ -345,9 +345,9 @@
 
                         <!-- Page Heading -->
                         <div style="width:100%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800">Eleve</h1>
-                            <a href="./Professeur/addProfesseur.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
-                                <p>+ Nouvel Eleve</p>
+                            <h1 class="h3 mb-4 text-gray-800">Liste Etudiant</h1>
+                            <a href="./Eleve/addEleve.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
+                                <p>+ Nouvel Etudiant</p>
                             </a>
                         </div>
 
@@ -355,16 +355,13 @@
         
          <?php
             include_once('bd/config.php');
-            $req = $pdo->prepare("SELECT * FROM professeur");
+            $req = $pdo->prepare("SELECT * FROM etudiant");
             $req->execute();
             $result = $req->fetchAll();
           ?>
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
+                        
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -375,7 +372,7 @@
                                             <th>Matricule</th>
                                             <th>Telephone</th>
                                             <th>Ecole</th>
-                                            <th>Date Naissance</th>
+                                            <th>Email</th>
                                             <th>Creer par </th>
                                         </tr>
                                     </thead>
@@ -388,14 +385,14 @@
                                                 <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
                                                 <td><?php echo $row['telephone'] ?></td>
                                                 <td><?php echo $row['nom_ecole'] ?></td>
-                                                <td><?php echo $row['date_naiss'] ?></td>
-                                                <?php $id = $row['id_prof'] ?>
+                                                <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['email'] ?></td>
+                                                <?php $id = $row['id_etudiant'] ?>
                                                 <td>
                                                     <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
+                                                        echo '<a href="Eleve/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
                                                     ';?>
                                                     <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
+                                                    echo '<a href="Eleve/updateEleve.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
                                                     ';?>
                                                 </td>
                                             </tr>

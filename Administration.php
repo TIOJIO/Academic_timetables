@@ -34,7 +34,7 @@
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-calendar"></i>
     </div>
@@ -336,17 +336,19 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                <h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;" class="h3 mb-4 text-gray-800" > Hierachiser votre administration efficacement </h1>        
+                <h4 style="text-align: center;font-family: 'Times New Roman', Times, serif;" class="h6 mb-4 text-gray-800" >Ajouter des responsable avec des role bien definit !! </h4>        
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                    <br><br>
                    
 
-                        <!-- Page Heading -->
+                      <!-- Page Heading -->
                         <div style="width:100%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800">Pofesseur</h1>
-                            <a href="./Professeur/addProfesseur.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
-                                <p>+ Nouveau professeur</p>
+                            <h1 class="h3 mb-4 text-gray-800">Membre de l'Administration</h1>
+                            <a href="./Administration/addAdministration.php" style="text-decoration: none;background-color: rgba(0, 0, 255, 0.405);color:white;font-weight:bold;border-radius:5px;padding:10px;cursor:pointer;height:50px" onclick="document.getElementById('id01').style.display='block'">
+                                <p>+ Nouveau Membre</p>
                             </a>
                         </div>
 
@@ -354,16 +356,13 @@
         
          <?php
             include_once('bd/config.php');
-            $req = $pdo->prepare("SELECT * FROM professeur");
+            $req = $pdo->prepare("SELECT * FROM administration");
             $req->execute();
             $result = $req->fetchAll();
           ?>
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  onclick=print();><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                        </div>
+                    
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -373,8 +372,8 @@
                                             <th>Username</th>
                                             <th>Matricule</th>
                                             <th>Telephone</th>
-                                            <th>Ecole</th>
-                                            <th>Date Naissance</th>
+                                            <th>Email</th>
+                                            <th>Poste</th>
                                             <th>Creer par </th>
                                         </tr>
                                     </thead>
@@ -386,19 +385,15 @@
                                                 <td><?php echo $row['username'] ?> <?php echo $row['names'] ?></td>
                                                 <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['matricule'] ?></td>
                                                 <td><?php echo $row['telephone'] ?></td>
-                                                <td><?php echo $row['nom_ecole'] ?></td>
-                                                <td><?php echo $row['date_naiss'] ?></td>
-                                                <?php $id = $row['id_prof'] ?>
+                                                <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['email'] ?></td>
+                                                <td><?php echo $row['poste'] ?></td>
+                                                <?php $id = $row['id_membre'] ?>
                                                 <td>
-                                                    
                                                     <?php 
-                                                        echo '<a href="professeur/delete.php?$idi='.$id.'"><button style="border: none;background-color: white;" type="submit" name="sup">🗑️</button></a>
+                                                        echo '<a href="Administration/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
                                                     ';?>
                                                     <?php                    
-                                                    echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button style="border: none;background-color: white;">✏️</button></a>
-                                                    ';?>
-                                                     <?php                    
-                                                    echo '<a href="professeur/ProgrammerProf.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
+                                                    echo '<a href="Administration/updateAdministration.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
                                                     ';?>
                                                 </td>
                                             </tr>

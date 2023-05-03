@@ -389,6 +389,10 @@
             $req1 = $pdo->prepare("SELECT * FROM departement");
             $req1->execute();
             $results = $req1->fetchAll();
+
+            $req2 = $pdo->prepare("SELECT * FROM administration WHERE poste='RESPONSABLE FILIERE' ");
+            $req2->execute();
+            $result1 = $req2->fetchAll();
           ?>
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -419,9 +423,9 @@
                                       <input placeholder="Nom filiere" name="nom_filiere" class="input-form" type="text"><br><br>
                                       <select class="input-form" aria-placeholder="choisir un Directeur" name="resp_filiere" id="" >
                                         <option value="">choisir un responsable de filiere</option>
-                                        <option value="AZEBAZE JEANNET">AZEBAZE JEANNET </option>
-                                        <option value="UBER JEAN">UBER JEAN</option>
-                                        <option value="KANA LUIS">KANA LUIS </option>
+                                        <?php foreach ($result1 as $rowd): ?>
+                                            <option value="<?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>"><?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>  </option>
+                                         <?php endforeach ?> 
                                      </select><br><br>
                                      <input  name="image" class="input-form" type="file" id="image">
 

@@ -372,7 +372,6 @@
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
-                                            <th>responsable</th>
                                             <th>Ecole</th>
                                             <th>Departement </th>
                                             <th>Filiere </th>
@@ -385,7 +384,6 @@
                                        <?php foreach ($result as $row): ?>
                                          <tr style="text-align: center;">
                                                 <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['nom'] ?></td>
-                                                <td ><?php echo $row['prof'] ?></td>
                                                 <td><?php echo $row['ecole'] ?></td>
                                                 <td><?php echo $row['dep'] ?></td>
                                                 <td style="color: rgba(77, 77, 236, 0.775);font-weight: bold;"><?php echo $row['filiere'] ?></td>

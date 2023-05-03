@@ -8,11 +8,10 @@
       $filiere=$_POST['filiere'];
       $nom_matiere=$_POST['mom_matiere'];
       $nbr_heure=$_POST['nbr_heure'];
-      $prof=$_POST['prof'];
       $idi=$_POST['idi'];
 
 
-    $mod = $pdo->prepare("UPDATE matiere SET nom='$nom_matiere', ecole='$ecole',dep='$dep',filiere='$filiere',prof='$prof', nbr_heure='$nbr_heure' WHERE id_matiere=$idi");
+    $mod = $pdo->prepare("UPDATE matiere SET nom='$nom_matiere', ecole='$ecole',dep='$dep',filiere='$filiere', nbr_heure='$nbr_heure' WHERE id_matiere=$idi");
       $mod->execute();   
      header("location:../Matiere.php");
 

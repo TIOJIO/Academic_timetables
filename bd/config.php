@@ -1,12 +1,10 @@
 <?php
-   $options = array();
-   $options[PDO::MYSQL_ATTR_SSL_CA] = '/path/to/ca-cert.pem' ;
-   $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false ;
-    try {
-         $pdo = new PDO("mysql:host=stima-db.mysql.database.azure.com;Database=stima_db", "TIOJIO", "tiojio15#");
-    } catch (\Throwable $th) {
-        echo $th;
-    }
+
+
+
+$con = mysqli_init();
+mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
+mysqli_real_connect($conn, "stima-db.mysql.database.azure.com", "romain", "tiojio15#", "stima_db", 3306, MYSQLI_CLIENT_SSL);
+
+
 ?>
-
-

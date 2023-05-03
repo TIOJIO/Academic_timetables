@@ -40,12 +40,13 @@
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>
+      
     </div>
 
-    <div class="container">
+    <div style="flex:1;justify-items: center;margin-top:50px" class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div  class="row justify-content-center">
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 

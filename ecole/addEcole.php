@@ -379,7 +379,12 @@
 
    
 
-                            
+          <?php
+            include_once('../bd/config.php');
+            $req1 = $pdo->prepare("SELECT * FROM administration WHERE poste='DIRECTEUR' ");
+            $req1->execute();
+            $result1 = $req1->fetchAll();
+          ?>     
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
   
@@ -395,9 +400,9 @@
                                       <input  name="image" class="input-form" type="file" id="image"><br><br>
                                       <select class="input-form" aria-placeholder="choisir un Directeur" name="directeur" id="" >
                                         <option value="">choisir un Directeur</option>
-                                        <option value="TIOJIO ROMAIN">TIOJIO ROMAIN </option>
-                                        <option value="FEUJIO ROCHINEL">FEUJIO ROCHINEL</option>
-                                        <option value="PAUL JEAN">PAUL JEAN </option>
+                                        <?php foreach ($result1 as $row): ?>
+                                            <option value="<?php echo $row['username'] ?> <?php echo $row['names'] ?>"><?php echo $row['username'] ?> <?php echo $row['names'] ?>  </option>
+                                         <?php endforeach ?>  
                                      </select>
 
                                       <br><br>

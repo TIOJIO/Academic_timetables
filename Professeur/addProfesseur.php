@@ -379,7 +379,24 @@
 
 
    
+                    <?php
+                        include_once('../bd/config.php');
+                        $req = $pdo->prepare("SELECT * FROM ecole");
+                        $req->execute();
+                        $result = $req->fetchAll();
 
+                        $req1 = $pdo->prepare("SELECT * FROM departement");
+                        $req1->execute();
+                        $results = $req1->fetchAll();
+
+                        $req2 = $pdo->prepare("SELECT * FROM filiere");
+                        $req2->execute();
+                        $results2 = $req2->fetchAll();
+
+                        $req3 = $pdo->prepare("SELECT * FROM matiere");
+                        $req3->execute();
+                        $results3 = $req3->fetchAll();
+                  ?>
                             
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -398,32 +415,31 @@
                                  <div class="first-main">
                                     <input placeholder="Date" name="date_naiss" class="input-form" type="date"><br><br>
                                     <select class="input-form" placeholder="choisir une ecole" name="ecole" id="" >
-                                        <option value="">choisir une ecole</option>
-                                        <option value="3IAC">3IAC</option>
-                                        <option value="ISTDI">ISTDI</option>
-                                        <option value="PISTI">PISTI</option>
-                                        <option value="ICIA">ICIA</option>
+                                    <option value="">choisir l'ecole</option>
+                                        <?php foreach ($result as $row): ?>
+                                        <option value="<?php echo $row['nom'] ?>"><?php echo $row['nom'] ?> </option>
+                                        <?php endforeach ?>  
                                      </select><br><br>
 
                                      <select class="input-form" aria-placeholder="choisir une ecole" name="dep" id="" >
-                                        <option value="">choisir un departement</option>
-                                        <option value="TI">TI</option>
-                                        <option  value="Genie informatique">Genie informatique</option>
-                                        <option value="autre">autre</option>
+                                     <option value="">choisir le departement</option>
+                                        <?php foreach ($results as $rows): ?>
+                                        <option value="<?php echo $rows['nom'] ?>"><?php echo $rows['nom'] ?> </option>
+                                        <?php endforeach ?>  
                                      </select><br><br>
 
                                      <select class="input-form" aria-placeholder="choisir une ecole" name="filiere" id="" >
-                                        <option value="">choisir une Fillier</option>
-                                        <option value="CSI3">CSI3</option>
-                                        <option value="PAM">PAM</option>
-                                        <option value="Reseau">Reseau</option>
+                                     <option value="">choisir la filiere</option>
+                                        <?php foreach ($results2 as $rows2): ?>
+                                        <option value="<?php echo $rows2['nom_filiere'] ?>"><?php echo $rows2['nom_filiere'] ?> </option>
+                                        <?php endforeach ?>  
                                      </select><br><br>
 
                                      <select class="input-form" aria-placeholder="choisir une ecole" name="matiere" id="" >
-                                        <option value="">Professeur de :</option>
-                                        <option value="Mathematique">Mathematique</option>
-                                        <option value="Anglais">Anglais</option>
-                                        <option value="Programmation">Programmation</option>
+                                        <option value="">Professeur de </option>
+                                        <?php foreach ($results3 as $rows3): ?>
+                                        <option value="<?php echo $rows3['nom'] ?>"><?php echo $rows3['nom'] ?> </option>
+                                        <?php endforeach ?>  
                                      </select><br><br>
                                       <div style="width: 80%;display: flex;justify-content: space-between;">
                                           <input class="action" name="save" type="submit" value="Enregistrer">

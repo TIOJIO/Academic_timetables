@@ -385,9 +385,12 @@
             $result = $req->fetchAll();
 
             $a = $_GET['$idi'];
-
             $update = $pdo->prepare("SELECT*FROM Departement WHERE id_dep =$a ");
             $update->execute();
+
+            $req1 = $pdo->prepare("SELECT * FROM administration WHERE poste='CHEF DEPARTEMENT' ");
+            $req1->execute();
+            $result1 = $req1->fetchAll();
           ?>
                   
                   <?php foreach ($update as $row) : ?>
@@ -412,9 +415,9 @@
                                       <input placeholder="Nom Departement" value="<?php echo $row['nom'] ?>" name="nom_dep" class="input-form" type="text"><br><br>
                                       <select class="input-form" aria-placeholder="choisir un Directeur" name="chef_dep" id="" >
                                         <option value="<?php echo $row['chef_dep'] ?>"><?php echo $row['chef_dep'] ?></option>
-                                        <option value="TIOJIO ROMAIN">TIOJIO ROMAIN </option>
-                                        <option value="FEUJIO ROCHINEL">FEUJIO ROCHINEL</option>
-                                        <option value="PAUL JEAN">PAUL JEAN </option>
+                                        <?php foreach ($result1 as $rowd): ?>
+                                            <option value="<?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>"><?php echo $rowd['username'] ?> <?php echo $rowd['names'] ?>  </option>
+                                         <?php endforeach ?> 
                                      </select><br><br>
                                      <input  name="image" class="input-form" type="file" id="image">
 

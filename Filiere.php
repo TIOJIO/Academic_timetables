@@ -395,12 +395,16 @@
                                                 <td><?php echo $row['nbr_matiere'] ?></td>
                                                 <?php $id = $row['id_filiere'] ?>
                                                 <td>
-                                                    <?php 
-                                                        echo '<a href="Filiere/delete.php?$idi='.$id.'"><button class="btn btn-danger" type="submit" name="sup">Supprimer</button></a>
+                                                <?php 
+                                                      echo '<a href="Filiere/delete.php?$idi='.$id.'"><button style="border: none;background-color: white;" type="submit" name="sup">🗑️</button></a>
                                                     ';?>
                                                     <?php                    
-                                                    echo '<a href="Filiere/updateFiliere.php?$idi=' . $id . '"><button class="btn btn-warning ">Modifier</button></a>
+                                                    echo '<a href="Filiere/updateFiliere.php?$idi=' . $id . '"><button style="border: none;background-color: white;">✏️</button></a>
                                                     ';?>
+                                                     <?php                    
+                                                    echo '<a href="Filiere/ProgrammerCour.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
+                                                    ';?> 
+
                                                 </td>
                                             </tr>
                                     <?php endforeach ?>                                       
