@@ -56,7 +56,12 @@
 <hr class="sidebar-divider">
 
 <!-- Heading -->
-
+ 
+    <li class="nav-item">
+            <a class="nav-link" href="../Administration.php">
+                <i class="fas fa-calendar"></i>
+                <span>Administration</span></a>
+        </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -89,7 +94,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../Filiere.php">Nouvelle FIlliere</a>
             <a class="collapse-item" href="../Matiere.php">Nouelle Matiere</a>
-            <a class="collapse-item" href="../Filiere/ProgrammerCour.php">Programmer un cours</a>
+            <a class="collapse-item" href="../Filiere.php">Programmer un cours</a>
         </div>
     </div>
 </li>
@@ -111,11 +116,12 @@
 </li>
 
 <!-- Nav Item - Charts -->
-
+        
+        
        <li class="nav-item">
-            <a class="nav-link" href="../Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
+            <a class="nav-link" href="../PlageHoraire.php.php">
+                <i class="fas fa-clipboard-list "></i>
+                <span>Plage Horaire</span></a>
         </li>
 
 

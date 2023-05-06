@@ -54,6 +54,11 @@
 
 <!-- Heading -->
 
+      <li class="nav-item">
+            <a class="nav-link" href="./Administration.php">
+                <i class="fas fa-user-circle"></i>
+                <span>Administration</span></a>
+        </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -110,9 +115,9 @@
 <!-- Nav Item - Charts -->
 
        <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
+            <a class="nav-link" href="./PlageHoraire.php.php">
+                <i class="fas fa-clipboard-list "></i>
+                <span>Plage Horaire</span></a>
         </li>
 
 
@@ -303,7 +308,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span style="color: blue;font-weight:bold"  class="mr-2 d-none d-lg-inline ">   Admin </span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>

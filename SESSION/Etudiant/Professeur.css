@@ -1,0 +1,36 @@
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.first-main{
+    width: 40%;
+    margin-top: 20px;
+}
+.input-form{
+    border: 1px solid rgba(0, 0, 255, 0.24);
+    border-radius: 5px;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+.action{
+    background-color: rgba(0, 0, 255, 0.632);
+    border: none;
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.action-reset{
+    border:2px solid rgba(0, 0, 255, 0.632);
+    border-radius: 5px;
+    width: 150px;
+    height: 60px;
+    color: rgba(0, 0, 255, 0.632);
+    font-weight: bold;
+    background-color: white;
+}
+

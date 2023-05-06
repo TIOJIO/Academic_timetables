@@ -56,6 +56,11 @@
 
 <!-- Heading -->
 
+<li class="nav-item">
+            <a class="nav-link" href="./Administration.php">
+                <i class="fas fa-calendar"></i>
+                <span>Administration</span></a>
+        </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -111,10 +116,10 @@
 
 <!-- Nav Item - Charts -->
 
-       <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
+<li class="nav-item">
+            <a class="nav-link" href="./PlageHoraire.php.php">
+                <i class="fas fa-clipboard-list "></i>
+                <span>Plage Horaire</span></a>
         </li>
 
 
@@ -358,8 +363,9 @@
             $req->execute();
             $result = $req->fetchAll();
           ?>
+                   
                      <!-- DataTales Example -->
-                     <div class="card shadow mb-4">
+                     <div  class="card shadow mb-4">
                         <div class="card-header py-3">
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  onclick=print();><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -398,7 +404,7 @@
                                                     echo '<a href="professeur/updateProfesseur.php?$idi=' . $id . '"><button style="border: none;background-color: white;">✏️</button></a>
                                                     ';?>
                                                      <?php                    
-                                                    echo '<a href="professeur/ProgrammerProf.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
+                                                    echo '<a  href="professeur/ProgrammerProf.php?$idi=' . $id . '"><button style="border: none;background-color: white;">⏱️</button></a>
                                                     ';?>
                                                 </td>
                                             </tr>

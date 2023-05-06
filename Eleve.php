@@ -56,7 +56,11 @@
 <hr class="sidebar-divider">
 
 <!-- Heading -->
-
+<li class="nav-item">
+            <a class="nav-link" href="./Administration.php">
+                <i class="fas fa-calendar"></i>
+                <span>Administration</span></a>
+        </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -113,9 +117,9 @@
 <!-- Nav Item - Charts -->
 
        <li class="nav-item">
-            <a class="nav-link" href="./Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
+            <a class="nav-link" href="./PlageHoraire.php.php">
+                <i class="fas fa-clipboard-list "></i>
+                <span>Plage Horaire</span></a>
         </li>
 
 

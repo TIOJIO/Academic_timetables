@@ -58,7 +58,12 @@
 <hr class="sidebar-divider">
 
 <!-- Heading -->
-
+ 
+    <li class="nav-item">
+            <a class="nav-link" href="../Administration.php">
+                <i class="fas fa-calendar"></i>
+                <span>Administration</span></a>
+        </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -91,7 +96,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../Filiere.php">Nouvelle FIlliere</a>
             <a class="collapse-item" href="../Matiere.php">Nouelle Matiere</a>
-            <a class="collapse-item" href="../Filiere/ProgrammerCour.php">Programmer un cours</a>
+            <a class="collapse-item" href="../Filiere.php">Programmer un cours</a>
         </div>
     </div>
 </li>
@@ -113,11 +118,12 @@
 </li>
 
 <!-- Nav Item - Charts -->
-
+        
+        
        <li class="nav-item">
-            <a class="nav-link" href="../Administration.php">
-                <i class="fas fa-user-circle"></i>
-                <span>Administration</span></a>
+            <a class="nav-link" href="../PlageHoraire.php.php">
+                <i class="fas fa-clipboard-list "></i>
+                <span>Plage Horaire</span></a>
         </li>
 
 
@@ -348,143 +354,168 @@
                     include_once('../bd/config.php');
 
                     $a = $_GET['$idi'];
-                    $prof = $pdo->prepare("SELECT*FROM professeur WHERE id_prof =$a ");
-                    $prof->execute();
+                    
 
-                    $periode = $pdo->prepare("SELECT*FROM plagehoraire WHERE id_prof=' $a' ORDER BY id_plage DESC LIMIT 1 ");
-                    $periode->execute();
+
                  
+
+                    $filiere = $pdo->prepare("SELECT*FROM filiere WHERE id_filiere =$a ");
+                    $filiere->execute();
+
+                    $periode = $pdo->prepare("SELECT*FROM plagehorairecours WHERE id_filiere=' $a' ORDER BY id_plage DESC LIMIT 1 ");
+                    $periode->execute();
+
+                    $periodeCon = $pdo->prepare("SELECT*FROM plagehorairecours WHERE id_filiere=' $a' ORDER BY id_plage DESC LIMIT 1 ");
+                    $periodeCon->execute();
+                    $resultcon = $periodeCon->fetchAll();
+                    
+                    if ($resultcon ==  true) {
+                        $periodepro = $pdo->prepare("SELECT*FROM plagehorairecours WHERE id_filiere=' $a' ORDER BY id_plage DESC LIMIT 1 ");
+                        $periodepro->execute();
+                        foreach ($periodepro as $rowpro){
+                            $periode_debut = $rowpro['debut'];
+                            $periode_fin = $rowpro['fin'];
+                        }
+                          
+                    } else {
+                            $periode_debut = '0000-00-00';
+                            $periode_fin = '0000-00-00';
+                    }
+                    
+                   
                       
 
 
                     //LUNDI
-                    $reql1 = $pdo->prepare("SELECT * FROM programme WHERE jour='LUNDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a'  ");
+                    $reql1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='LUNDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND  periode_debut='$periode_debut' AND  periode_fin='$periode_fin'  ");
                     $reql1->execute();
                     $resultl1 = $reql1->fetchAll();
 
-                    $reql2 = $pdo->prepare("SELECT * FROM programme WHERE jour='LUNDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                    $reql2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='LUNDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reql2->execute();
                     $resultl2 = $reql2->fetchAll();
 
-                    $reql3 = $pdo->prepare("SELECT * FROM programme WHERE jour='LUNDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                    $reql3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='LUNDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin'");
                     $reql3->execute();
                     $resultl3 = $reql3->fetchAll();
 
-                    $reql4 = $pdo->prepare("SELECT * FROM programme WHERE jour='LUNDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                    $reql4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='LUNDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reql4->execute();
                     $resultl4 = $reql4->fetchAll();
 
 
                     //MARDI
-                    $reqma1 = $pdo->prepare("SELECT * FROM programme WHERE jour='MARDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                    $reqma1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MARDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin'");
                     $reqma1->execute();
                     $resultma1 = $reqma1->fetchAll();
 
-                    $reqma2 = $pdo->prepare("SELECT * FROM programme WHERE jour='MARDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                    $reqma2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MARDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqma2->execute();
                     $resultma2 = $reqma2->fetchAll();
 
-                    $reqma3 = $pdo->prepare("SELECT * FROM programme WHERE jour='MARDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                    $reqma3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MARDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqma3->execute();
                     $resultma3 = $reqma3->fetchAll();
 
-                    $reqma4 = $pdo->prepare("SELECT * FROM programme WHERE jour='MARDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                    $reqma4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MARDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqma4->execute();
                     $resultma4 = $reqma4->fetchAll();
 
                     //MERCREDI
-                    $reqme1 = $pdo->prepare("SELECT * FROM programme WHERE jour='MERCREDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                    $reqme1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MERCREDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqme1->execute();
                     $resultme1 = $reqme1->fetchAll();
 
-                    $reqme2 = $pdo->prepare("SELECT * FROM programme WHERE jour='MERCREDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                    $reqme2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MERCREDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqme2->execute();
                     $resultme2 = $reqme2->fetchAll();
 
-                    $reqme3 = $pdo->prepare("SELECT * FROM programme WHERE jour='MERCREDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                    $reqme3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MERCREDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqme3->execute();
                     $resultme3 = $reqme3->fetchAll();
 
-                    $reqme4 = $pdo->prepare("SELECT * FROM programme WHERE jour='MERCREDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                    $reqme4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='MERCREDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                     $reqme4->execute();
                     $resultme4 = $reqme4->fetchAll();
 
                      //JEUDI
-                     $reqje1 = $pdo->prepare("SELECT * FROM programme WHERE jour='JEUDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                     $reqje1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='JEUDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqje1->execute();
                      $resultje1 = $reqje1->fetchAll();
  
-                     $reqje2 = $pdo->prepare("SELECT * FROM programme WHERE jour='JEUDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                     $reqje2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='JEUDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqje2->execute();
                      $resultje2 = $reqje2->fetchAll();
  
-                     $reqje3 = $pdo->prepare("SELECT * FROM programme WHERE jour='JEUDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                     $reqje3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='JEUDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqje3->execute();
                      $resultje3 = $reqje3->fetchAll();
  
-                     $reqje4 = $pdo->prepare("SELECT * FROM programme WHERE jour='JEUDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                     $reqje4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='JEUDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqje4->execute();
                      $resultje4 = $reqje4->fetchAll();
 
                      //VENDREDI
-                     $reqve1 = $pdo->prepare("SELECT * FROM programme WHERE jour='VENDREDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                     $reqve1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='VENDREDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqve1->execute();
                      $resultve1 = $reqve1->fetchAll();
  
-                     $reqve2 = $pdo->prepare("SELECT * FROM programme WHERE jour='VENDREDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                     $reqve2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='VENDREDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqve2->execute();
                      $resultve2 = $reqve2->fetchAll();
  
-                     $reqve3 = $pdo->prepare("SELECT * FROM programme WHERE jour='VENDREDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                     $reqve3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='VENDREDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqve3->execute();
                      $resultve3 = $reqve3->fetchAll();
  
-                     $reqve4 = $pdo->prepare("SELECT * FROM programme WHERE jour='VENDREDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                     $reqve4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='VENDREDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqve4->execute();
                      $resultve4 = $reqve4->fetchAll();
 
                      //SAMEDI
-                     $reqsa1 = $pdo->prepare("SELECT * FROM programme WHERE jour='SAMEDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                     $reqsa1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='SAMEDI' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqsa1->execute();
                      $resultsa1 = $reqsa1->fetchAll();
  
-                     $reqsa2 = $pdo->prepare("SELECT * FROM programme WHERE jour='SAMEDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                     $reqsa2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='SAMEDI' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqsa2->execute();
                      $resultsa2 = $reqsa2->fetchAll();
  
-                     $reqsa3 = $pdo->prepare("SELECT * FROM programme WHERE jour='SAMEDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                     $reqsa3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='SAMEDI' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqsa3->execute();
                      $resultsa3 = $reqsa3->fetchAll();
  
-                     $reqsa4 = $pdo->prepare("SELECT * FROM programme WHERE jour='SAMEDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                     $reqsa4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='SAMEDI' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqsa4->execute();
                      $resultsa4 = $reqsa4->fetchAll();
 
                      //DIMANCHE
-                     $reqdi1 = $pdo->prepare("SELECT * FROM programme WHERE jour='DIMANCHE' AND heure_debut='08:00' AND heure_fin='09:50' AND id_prof='$a' ");
+                     $reqdi1 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='DIMANCHE' AND heure_debut='08:00' AND heure_fin='09:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqdi1->execute();
                      $resultdi1 = $reqdi1->fetchAll();
  
-                     $reqdi2 = $pdo->prepare("SELECT * FROM programme WHERE jour='DIMANCHE' AND heure_debut='10:10' AND heure_fin='12:00' AND id_prof='$a' ");
+                     $reqdi2 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='DIMANCHE' AND heure_debut='10:10' AND heure_fin='12:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqdi2->execute();
                      $resultdi2 = $reqdi2->fetchAll();
  
-                     $reqdi3 = $pdo->prepare("SELECT * FROM programme WHERE jour='DIMANCHE' AND heure_debut='13:00' AND heure_fin='14:50' AND id_prof='$a' ");
+                     $reqdi3 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='DIMANCHE' AND heure_debut='13:00' AND heure_fin='14:50' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqdi3->execute();
                      $resultdi3 = $reqdi3->fetchAll();
  
-                     $reqdi4 = $pdo->prepare("SELECT * FROM programme WHERE jour='DIMANCHE' AND heure_debut='15:00' AND heure_fin='17:00' AND id_prof='$a' ");
+                     $reqdi4 = $pdo->prepare("SELECT * FROM programmefiliere WHERE jour='DIMANCHE' AND heure_debut='15:00' AND heure_fin='17:00' AND id_filiere='$a' AND periode_debut='$periode_debut' AND  periode_fin='$periode_fin' ");
                      $reqdi4->execute();
                      $resultdi4 = $reqdi4->fetchAll();
 
 
-                   
+                     $plage = $pdo->prepare("SELECT * FROM plagehoraires");
+                     $plage->execute();
+                     $resultplage = $plage->fetchAll();
 
                 ?>
 
-                  <?php foreach ($prof as $rows) : ?>
+                  <?php foreach ($filiere as $rows) : ?>
                         <div style="width:50%;display:flex;justify-content:space-between">
-                            <h1 class="h3 mb-4 text-gray-800" >Programmer   <span style="color: rgba(0, 0, 255, 0.632);"><?php echo $rows['username'] ?>  <?php echo $rows['names'] ?></span></h1>        
+                            <h1 class="h3 mb-4 text-gray-800" >Programmer la filiere  <span style="color: rgba(0, 0, 255, 0.632);"><?php echo $rows['nom_filiere'] ?>  </span></h1>        
                         </div>
       
                      <!-- DataTales Example -->
@@ -502,14 +533,24 @@
                                     <div  style="flex-wrap: wrap;display:flex;justify-content: space-between;width:45%;margin:auto">
                                             <div>
                                                     <p>Debut</p>
-                                                    <input  name="debut" class="input-form" type="date">
+                                                     <select name="debut"  class="input-form" id="">
+                                                        <option value="">periode de debut..</option>
+                                                        <?php foreach ($resultplage as $rowplage) : ?>
+                                                            <option value="<?php echo $rowplage['debut'] ?>"><?php echo $rowplage['debut'] ?></option>
+                                                        <?php endforeach ?>
+                                                     </select>
                                                 </div>
                                                 <div>
                                                     <p>Fin</p>
-                                                    <input  name="fin" class="input-form" type="date">
+                                                    <select name="fin"  class="input-form" id="">
+                                                        <option value="">periode de fin..</option>
+                                                        <?php foreach ($resultplage as $rowplage) : ?>
+                                                            <option value="<?php echo $rowplage['fin'] ?>"><?php echo $rowplage['fin'] ?></option>
+                                                        <?php endforeach ?>
+                                                     </select>
                                                 </div>
                                                 <input onclick="plagehoraire()" style="height: 40px;margin-top:55px" class="btn btn-primary" name="save" type="submit" value="Enregistrer">
-                                                <input  name="id_prof" style="display: none;" value="<?php echo $rows['id_prof'] ?>" type="text">
+                                                <input  name="id_filiere" style="display: none;" value="<?php echo $rows['id_filiere'] ?>" type="text">
                                     </div>
                              </form>
                         </div><br>
@@ -534,13 +575,13 @@
                                     <tbody>
                                         <tr class="hauteur">                                                       
                                             <td class="colonne-horaire">08:00-09:50</td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                            
                                         </tr>   
@@ -557,13 +598,13 @@
                                         </tr>   
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">10:10-12:00</td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>
                                         <tr  class="colonne-data">
@@ -578,13 +619,13 @@
                                         </tr>
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">13:00-14:50</td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span>  <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>
                                         <tr class="colonne-pause">
@@ -599,13 +640,13 @@
                                         </tr>
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">15:10-17:00</td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultl4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultma4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultme4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultje4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultve4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultsa4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  data-toggle="modal" data-target="#logoutModal" class="clon"><?php foreach ($resultdi4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>                                   
                                     </tbody>
@@ -656,18 +697,18 @@
             include_once('../bd/config.php');
             
             $a = $_GET['$idi'];
-            $prof = $pdo->prepare("SELECT*FROM professeur WHERE id_prof =$a ");
+            $prof = $pdo->prepare("SELECT*FROM filiere WHERE id_filiere =$a ");
             $prof->execute();
 
             $req1 = $pdo->prepare("SELECT * FROM matiere");
             $req1->execute();
             $results = $req1->fetchAll();
 
-            $req2 = $pdo->prepare("SELECT * FROM filiere");
+            $req2 = $pdo->prepare("SELECT * FROM professeur");
             $req2->execute();
             $results2 = $req2->fetchAll();
 
-            $periode = $pdo->prepare("SELECT*FROM plagehoraire WHERE id_prof=' $a' ORDER BY id_plage DESC LIMIT 1 ");
+            $periode = $pdo->prepare("SELECT*FROM plagehorairecours WHERE id_filiere=' $a' ORDER BY id_plage DESC LIMIT 1 ");
             $periode->execute();
            
           ?>
@@ -719,16 +760,16 @@
                                 <?php endforeach ?>  
                         </select><br><br>
 
-                         <select class="input-form" required  name="filiere" id="" >
-                                <option value="">choisir la filiere</option>
+                         <select class="input-form" required  name="prof" id="" >
+                                <option value="">choisir le professeur</option>
                                 <?php foreach ($results2 as $rows2): ?>
-                                <option value="<?php echo $rows2['nom_filiere'] ?>"><?php echo $rows2['nom_filiere'] ?> </option>
+                                <option value="<?php echo $rows2['username'] ?>  <?php echo $rows2['names'] ?> "><?php echo $rows2['username'] ?>  <?php echo $rows2['names'] ?></option>
                                 <?php endforeach ?>  
                         </select>
-                        <input  name="prof" style="display: none;" value="<?php echo $rows['username'] ?><?php echo $rows['names'] ?>" type="text">
                        
                         <?php foreach ($prof as $rowp): ?>
-                            <input  name="id_prof" style="display: none;" value="<?php echo $rowp['id_prof'] ?>" type="text">
+                            <input  name="filiere" style="display: none;" value="<?php echo $rowp['nom_filiere'] ?>" type="text">
+                            <input  name="id_filiere" style="display: none;" value="<?php echo $rowp['id_filiere'] ?>" type="text">
                         <?php endforeach ?>
                      </div>
 

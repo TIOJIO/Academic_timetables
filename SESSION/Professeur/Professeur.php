@@ -393,7 +393,9 @@
                      $reqdi4->execute();
                      $resultdi4 = $reqdi4->fetchAll();
 
-
+                     $plage = $pdo->prepare("SELECT * FROM plagehoraires");
+                     $plage->execute();
+                     $resultplage = $plage->fetchAll();
                    
 
                 ?>
@@ -412,23 +414,34 @@
                              </div>
                           <?php endforeach ?>
 
-                         <div id="add">
-                              <p style="text-align: center;"> Rechercher un Emploi de temps de la periode du :</p>
+                          <div id="add">
+                              <p style="text-align: center;"> Emploi de temps de la periode du :</p>
                                <form action="./insertPlage.php" method="post">
                                     <div  style="flex-wrap: wrap;display:flex;justify-content: space-between;width:45%;margin:auto">
                                             <div>
                                                     <p>Debut</p>
-                                                    <input  name="debut" class="input-form" type="date">
+                                                     <select name="debut"  class="input-form" id="">
+                                                        <option value="">periode de debut..</option>
+                                                        <?php foreach ($resultplage as $rowplage) : ?>
+                                                            <option value="<?php echo $rowplage['debut'] ?>"><?php echo $rowplage['debut'] ?></option>
+                                                        <?php endforeach ?>
+                                                     </select>
                                                 </div>
                                                 <div>
                                                     <p>Fin</p>
-                                                    <input  name="fin" class="input-form" type="date">
+                                                    <select name="fin"  class="input-form" id="">
+                                                        <option value="">periode de fin..</option>
+                                                        <?php foreach ($resultplage as $rowplage) : ?>
+                                                            <option value="<?php echo $rowplage['fin'] ?>"><?php echo $rowplage['fin'] ?></option>
+                                                        <?php endforeach ?>
+                                                     </select>
                                                 </div>
-                                                <input onclick="plagehoraire()" style="height: 40px;margin-top:55px" class="btn btn-primary" name="save" type="submit" value="Rechercher">
+                                                <input onclick="plagehoraire()" style="height: 40px;margin-top:55px" class="btn btn-primary" name="save" type="submit" value="Enregistrer">
                                                 <input  name="id_prof" style="display: none;" value="<?php echo $rows['id_prof'] ?>" type="text">
                                     </div>
                              </form>
                         </div><br>
+
 
                            
                         <div class="card-body">
@@ -450,13 +463,13 @@
                                     <tbody>
                                         <tr class="hauteur">                                                       
                                             <td class="colonne-horaire">08:00-09:50</td>
-                                            <td  class="clon"><?php foreach ($resultl1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultma1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultme1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultje1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultve1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultsa1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultdi1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultl1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span>  <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultma1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultme1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span>  <span><?php echo $row['filiere'] ?></span><span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultje1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultve1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultsa1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultdi1 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                            
                                         </tr>   
@@ -473,13 +486,13 @@
                                         </tr>   
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">10:10-12:00</td>
-                                            <td  class="clon"><?php foreach ($resultl2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultma2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultme2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultje2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultve2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultsa2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultdi2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultl2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultma2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultme2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultje2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultve2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultsa2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultdi2 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>
                                         <tr  class="colonne-data">
@@ -494,13 +507,13 @@
                                         </tr>
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">13:00-14:50</td>
-                                            <td  class="clon"><?php foreach ($resultl3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultma3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultme3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultje3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultve3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultsa3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultdi3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultl3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultma3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultme3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultje3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultve3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultsa3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultdi3 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>
                                         <tr class="colonne-pause">
@@ -515,13 +528,13 @@
                                         </tr>
                                         <tr class="hauteur">
                                             <td class="colonne-horaire">15:10-17:00</td>
-                                            <td  class="clon"><?php foreach ($resultl4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultma4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultme4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultje4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultve4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultsa4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
-                                            <td  class="clon"><?php foreach ($resultdi4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultl4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultma4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultme4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultje4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultve4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultsa4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
+                                            <td  class="clon"><?php foreach ($resultdi4 as $row): ?> <div class="data"> <span><?php echo $row['matiere'] ?> </span> <span class="colonne-prof"><?php echo $row['prof'] ?> </span> <span><?php echo $row['filiere'] ?></span> <span class="colonne-salle">salle : <?php echo $row['salle'] ?> </span>  </div> <?php endforeach ?></td>
                                        
                                         </tr>                                   
                                     </tbody>
